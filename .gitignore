@@ -1,0 +1,10 @@
+.idea/
+backup/
+test-results/
+playwright-report/
+node_modules/
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -1,0 +1,28 @@
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../../pages/LoginPage.js';
+import { RecruitmentPage } from '../../pages/Recruitment.js';
+import { AdminOrganizationPage } from '../../pages/AdminOrganization.js';
+import { PIMEmployeeListPage } from '../../pages/PIMEmployeeList.js';
+
+let login;
+let recruitment;
+let adminOrganization;
+let pimEmployeeList;
+
+test.beforeEach(async ({ page }) => {
+    login = new LoginPage(page);
+    recruitment = new RecruitmentPage(page);
+    adminOrganization = new AdminOrganizationPage(page);
+    pimEmployeeList = new PIMEmployeeListPage(page);
+    await login.navigate();
+    await login.verifySuccessfulllogin();
+});
+
+test('TC_REC_003: Search Vacancy by Hiring Manager (Positive)', async () => {
+    await recruitment.clickRecruitmentTab();
+    await recruitment.verifyRecruitmentPage();
+    await adminOrganization.clickTopMenu('Vacancies');
+    await pimEmployeeList.selectDropdown(2);
+    await pimEmployeeList.selectDropdownOptionForJob('Wyatt Hodkiewicz');
+    await adminOrganization.clickSearchButton();
+});

@@ -1,4 +1,4 @@
-# 📐 PlayWright — Page Object Model (POM)
+# 📐  HRM-ERP-Automation-Suite
 
 > A clean implementation of the **Page Object Model (POM)** design pattern using Playwright — built for scalable, readable, and maintainable test automation.
 
